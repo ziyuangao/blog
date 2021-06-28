@@ -2,6 +2,7 @@
   <div class="home">
       <banner-template />
       <menu-list />
+      <home-wrap />
   </div>
 </template>
 
@@ -9,10 +10,11 @@
 
 import bannerTemplate from '../components/homeTemplate/banner'
 import menuList from '../components/common/menuList.vue'
+import homeWrap from '../components/common/homeWrap.vue'
 export default {
   name: 'Home',
   components: {
-    bannerTemplate,menuList
+    bannerTemplate,menuList,homeWrap
   }
 }
 </script>

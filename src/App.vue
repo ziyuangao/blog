@@ -1,5 +1,5 @@
 <template>
-  <div id="nav" :class="isPc==1?'min1366':''">
+  <div id="app" :class="isPc==1?'min1200':''">
     <router-view />
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style>
-.min1366{
-  min-width: 1366px;
+.min1200{
+  min-width: 1200px;
 }
 </style>
