@@ -36,12 +36,12 @@ export default {
                 this.$router.push('/home')
             }else{//首次进入项目 展示loading动画 同时判断当前运行环境
                 this.loading();
+                if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+                    sessionStorage.setItem('isPc',2)
+                }else {
+                    sessionStorage.setItem('isPc',1)
+                }
                 setTimeout(() => {
-                    if ((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
-                        sessionStorage.setItem('isPc',2)
-                    }else {
-                        sessionStorage.setItem('isPc',1)
-                    }
                     this.$router.push('/home')
                     // 保证loading动画播放完毕
                 }, 4000);

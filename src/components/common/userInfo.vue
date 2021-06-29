@@ -1,7 +1,10 @@
 <template>
     <div>
-        <el-card shadow="always">
-            <el-carousel height="370px" class="carouselBox" :autoplay="carouselConfig.autoplay" :indicator-position="carouselConfig.indicatorPosition">
+        <el-card shadow="always" @click="$router.push('/about')">
+            <el-carousel :height="isPc==1?'360px':'12rem'" 
+            :class="isPc == 1 ? 'carouselBox':'carouselBoxForMobile'" 
+            :autoplay="carouselConfig.autoplay" 
+            :indicator-position="carouselConfig.indicatorPosition">
                 <el-carousel-item>
                    <img src="@/assets/avatar/img1.jpg" />
                 </el-carousel-item>
@@ -23,6 +26,7 @@
 export default{
     data(){
         return{
+            isPc:undefined,
             carouselConfig:{
                 autoplay:true,
                 indicatorPosition:'none'
@@ -34,20 +38,33 @@ export default{
                 {id:4,src:"@/assets/avatar/img4.jpg"},
             ]
         }
+    },
+    created(){
+        this.isPc = sessionStorage.getItem('isPc')
     }
 }
 </script>
 
-<style scoped >
+<style scoped>
 .carouselBox{
     width:270px;
-    height:370px;
+    height:360px;
+    cursor: pointer;
+}
+.carouselBoxForMobile{
+    width: 9rem;
+    height: 12rem;
+    
 }
 .carouselBox .el-carousel-item{
     width:100%;
     height:100%;
 }
 .carouselBox img{
+    width:100%;
+    height:100%;
+}
+.carouselBoxForMobile img{
     width:100%;
     height:100%;
 }
